@@ -1,0 +1,20 @@
+<form>
+    <div class="row">
+        <div class="col">
+            <input type="text" ng-model="processedData.make" class="form-control" placeholder="Make" />
+        </div>
+        <div class="col">
+            <input type="text" ng-model="processedData.model" class="form-control" placeholder="Model" />
+        </div>
+        <div class="col">
+            <input type="text" ng-model="processedData.price" class="form-control" placeholder="Price" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-light" ng-click="cancel()">Cancel</button>
+            <button type="button" class="btn btn-success"
+                ng-click="process(processedData.id, processedData.make, processedData.model, processedData.price)">Send</button>
+        </div>
+    </div>
+</form>

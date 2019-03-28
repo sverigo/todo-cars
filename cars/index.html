@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" ng-app="carsApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cars</title>
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script src="lib/angularjs/angular.min.js"></script>
+    <script src="app.module.js"></script>
+    <script src="services/cars.service.js"></script>
+    <script src="controllers/cars.controller.js" type="module"></script>
+</head>
+
+<body>
+    <div class="container" ng-controller="CarsController">
+        <div class="header">
+            <h1>Car store</h1>
+            <button ng-click="onCreateAction()" class="btn btn-primary btn-create">Create</button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Make</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="car in cars">
+                    <th scope="col">{{ car.id }}</th>
+                    <th>{{ car.make }}</th>
+                    <th>{{ car.model }}</th>
+                    <th>{{ car.price | currency }}</th>
+                    <th><button ng-click="onUpdateAction(car.id)" class="btn btn-info">Update</button></th>
+                    <th><button ng-click="onDeleteAction(car.id)" class="btn btn-danger">Delete</button></th>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-if="action.create || action.update" ng-include="'views/form.html'">text</div>
+    </div>
+</body>
+
+</html>
