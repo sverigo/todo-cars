@@ -1,0 +1,28 @@
+{
+    "name": "cars",
+    "version": "1.0.0",
+    "description": "todo-cars application",
+    "main": "app.module.js",
+    "scripts": {
+        "build": "webpack",
+        "start": "node node_modules/.bin/webpack-dev-server --content-base app",
+        "test": "karma start karma.conf.js"
+    },
+    "author": "sveriho",
+    "license": "ISC",
+    "dependencies": {
+        "angular": "^1.7.8"
+    },
+    "devDependencies": {
+        "angular-mocks": "^1.7.8",
+        "jasmine": "^3.3.1",
+        "karma": "^4.0.1",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-coverage": "^1.1.2",
+        "karma-jasmine": "^2.0.1",
+        "karma-webpack": "^3.0.5",
+        "webpack": "^4.29.6",
+        "webpack-cli": "^3.3.0",
+        "webpack-dev-server": "^3.2.1"
+    }
+}

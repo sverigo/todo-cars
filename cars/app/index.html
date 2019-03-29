@@ -1,19 +1,16 @@
 <!doctype html>
-<html lang="en" ng-app="carsApp">
+<html lang="en" ng-app="appModule">
 
 <head>
     <meta charset="utf-8">
     <title>Cars</title>
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <script src="lib/angularjs/angular.min.js"></script>
-    <script src="app.module.js"></script>
-    <script src="services/cars.service.js"></script>
-    <script src="controllers/cars.controller.js" type="module"></script>
+    <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <script src="./app.webpack.js"></script>
 </head>
 
 <body>
-    <div class="container" ng-controller="CarsController">
+    <div class="container" ng-controller="carsController">
         <div class="header">
             <h1>Car store</h1>
             <button ng-click="onCreateAction()" class="btn btn-primary btn-create">Create</button>
@@ -40,7 +37,7 @@
                 </tr>
             </tbody>
         </table>
-        <div ng-if="action.create || action.update" ng-include="'views/form.html'">text</div>
+        <div ng-if="action.create || action.update" ng-include="'./views/form.html'">text</div>
     </div>
 </body>
 

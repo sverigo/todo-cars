@@ -1,14 +1,13 @@
 import Car from '../models/car.model.js';
 
-carsApp.controller('CarsController', function($scope, carsService) {
+export default function CarsController($scope, carsService) {
     $scope.cars = [];
+    $scope.action = { create: false, update: false };
+    $scope.processedData = {};
 
     carsService.getCars().then((data) => {
         $scope.cars = data;
     });
-
-    $scope.action = { create: false, update: false };
-    $scope.processedData = {};
 
     $scope.onCreateAction = () => {
         $scope.action.create = true;
@@ -63,4 +62,6 @@ carsApp.controller('CarsController', function($scope, carsService) {
         $scope.action.create = false;
         $scope.action.update = false;
     }
-});
+}
+
+CarsController.$injector = ['$scope', 'carsService'];

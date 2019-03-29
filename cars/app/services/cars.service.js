@@ -1,26 +1,28 @@
-carsApp.factory('carsService', ($http) => {
+export default function CarsService($http) {
     const url = 'http://localhost:3000/cars/';
 
     return {
-        getCars: function() {
+        getCars: () => {
             return $http.get(url).then((response) => {
                 return response.data;
             });
         },
-        createCar: function(data) {
-            return $http.post(url, data).then((response) => {
+        createCar: (car) => {
+            return $http.post(url, car).then((response) => {
                 return response.data;
             });
         },
-        updateCar: function(data) {
-            return $http.put(url + data.id, data).then((response) => {
+        updateCar: (car) => {
+            return $http.put(url + car.id, car).then((response) => {
                 return response.data;
             });
         },
-        deleteCar: function(id) {
+        deleteCar: (id) => {
             return $http.delete(url + id).then((response) => {
                 return response.data;
             });
         }
     }
-});
+}
+
+CarsService.$injector = ['$http'];
