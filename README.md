@@ -1,3 +1,9 @@
-Run using development server:
-Run app using http-server: http-server -p 80 --cors="Access-Control-Allow-Origin: *"
-Run database using json-server: json-server cars.json
+How to run this application:
+
+Run development server with database in 'server' directory: json-server cars.json
+
+Run application using following commands in 'cars' directory:
+
+npm install => webpack => npm start
+
+Run tests: npm test
