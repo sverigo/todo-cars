@@ -2,7 +2,7 @@ module.exports = function(config) {
     config.set({
         basePath: '',
         frameworks: ['jasmine'],
-        plugins: ['karma-jasmine', 'karma-chrome-launcher', 'karma-webpack'],
+        plugins: ['karma-jasmine', 'karma-chrome-launcher', 'karma-webpack', 'karma-coverage'],
         files: [
             './app/app.webpack.js',
             './node_modules/angular-mocks/angular-mocks.js',
@@ -10,9 +10,9 @@ module.exports = function(config) {
         ],
         exclude: [],
         preprocessors: {
-            './app/app.webpack.js': ['webpack']
+            './app/app.webpack.js': ['webpack', 'coverage']
         },
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
@@ -21,6 +21,10 @@ module.exports = function(config) {
         singleRun: false,
         concurrency: Infinity,
         webpack: {    
+        },
+        coverageReporter: {
+            type: 'html',
+            dir: 'coverage/'
         }
     });
 }
