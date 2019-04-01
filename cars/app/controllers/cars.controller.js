@@ -25,13 +25,13 @@ export default function CarsController($scope, carsService) {
         const position = $scope.cars.indexOf(car);
         $scope.cars.splice(position, 1);
         carsService.deleteCar(id);
-        hideForm();
+        $scope._hideForm();
     }
 
     $scope.process = (id, make, model, price) => {
         if (id === undefined) {
-            let id = getLastCarId() + 1;
-            const car = new Car(id, make, model, price)
+            let id = $scope._getLastCarId() + 1;
+            const car = new Car(id, make, model, price);
             $scope.cars.push(car);
             carsService.createCar(car);
         } else {
@@ -41,14 +41,14 @@ export default function CarsController($scope, carsService) {
             car.price = price;
             carsService.updateCar(car);
         }
-        hideForm();
+        $scope._hideForm();
     }
 
     $scope.cancel = () => {
         hideForm();
     }
 
-    function getLastCarId() {
+    $scope._getLastCarId = () => {
         let id = 0;
         const cars = $scope.cars;
         cars.forEach((car) => {
@@ -57,7 +57,7 @@ export default function CarsController($scope, carsService) {
         return id;
     }
 
-    function hideForm() {
+    $scope._hideForm = () => {
         $scope.processedData = {};
         $scope.action.create = false;
         $scope.action.update = false;

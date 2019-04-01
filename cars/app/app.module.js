@@ -1,4 +1,3 @@
-import angular from 'angular';
 import CarsController from './controllers/cars.controller.js';
 import CarsService from './services/cars.service.js';
 
